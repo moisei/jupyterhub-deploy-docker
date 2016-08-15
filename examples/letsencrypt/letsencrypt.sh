@@ -58,7 +58,7 @@ fi
 
 # Generate the cert and save it to the Docker volume
 docker run --rm -it \
-  -p 80:80 \
+  -p 30080:80 \
   -v $SECRETS_VOLUME:/etc/letsencrypt \
   quay.io/letsencrypt/letsencrypt:latest \
   certonly \
