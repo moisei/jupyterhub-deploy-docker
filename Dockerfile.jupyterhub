@@ -9,7 +9,7 @@ RUN /opt/conda/bin/pip install \
     dockerspawner==0.4.*
 
 # install docker on the jupyterhub container
-RUN wget https://get.docker.com -q -O /tmp/getdocker && \
+RUN wget -nc --quiet https://get.docker.com -O /tmp/getdocker && \
     chmod +x /tmp/getdocker && \
     sh /tmp/getdocker
 
@@ -22,3 +22,8 @@ RUN chmod 700 /srv/jupyterhub/secrets && \
     chmod 600 /srv/jupyterhub/secrets/*
 
 COPY ./userlist /srv/jupyterhub/userlist
+
+# Dalet
+ENV TERM xterm
+
+ENTRYPOINT exec tail -f /dev/null
