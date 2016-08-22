@@ -25,5 +25,6 @@ COPY ./userlist /srv/jupyterhub/userlist
 
 # Dalet
 ENV TERM xterm
+RUN apt install -y nano
 
 ENTRYPOINT exec tail -f /dev/null
